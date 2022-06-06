@@ -1,0 +1,5 @@
+// Exporting C functions to JavaScript
+emcc libraries/prime.c -s WASM=1 -s EXPORTED_FUNCTIONS="['_is_prime', '_check_primes']" -o public/prime.js
+
+// Optimization command
+emcc libraries/prime.c -s WASM=1 -s EXPORTED_FUNCTIONS="['_is_prime', '_check_primes']" -O3 -o public/prime.js
