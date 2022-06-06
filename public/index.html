@@ -32,5 +32,26 @@
         return count;
       };
 
+      // Check both JavaScript & C once the WASM is ready
+      Module["onRuntimeInitialized"] = () => {
+        // check JavaScript
+        let jsStart = performance.now();
+        let jsPrimes = checkPrimes(primes);
+        console.log(
+          "JS",
+          jsPrimes,
+          Math.round(performance.now() - jsStart) / 1000
+        );
+
+        // check C
+        let cStart = performance.now();
+        let cPrimes = _check_primes(primes);
+        console.log(
+          "C",
+          cPrimes,
+          Math.round(performance.now() - cStart) / 1000
+        );
+      };
+    </script>
   </body>
 </html>
