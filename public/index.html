@@ -7,6 +7,19 @@
   <body>
     <h1>Prime Numbers Benchmark</h1>
     <script src="./prime.js"></script>
-    <script></script>
+    <script lang="ts">
+      // Numbers to check: 0 - primes
+      const primes = 200000;
+
+      // JavaScript prime number checker
+      const isPrime = (number) => {
+        for (let i = 2; i < number; i++) {
+          if (number % i === 0) {
+            return false;
+          }
+        }
+        return number !== 1 && number !== 0;
+      };
+
   </body>
 </html>
